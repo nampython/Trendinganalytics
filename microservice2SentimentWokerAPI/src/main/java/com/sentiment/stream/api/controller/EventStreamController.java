@@ -1,5 +1,9 @@
 package com.sentiment.stream.api.controller;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.sentiment.stream.api.mongodb.collection.SentimentScore;
 import com.sentiment.stream.api.mongodb.collection.projection.ScoreByType;
 import com.sentiment.stream.api.mongodb.collection.projection.TotalScore;
@@ -23,6 +27,7 @@ public class EventStreamController {
 
     @Autowired
     MongoTemplate mongoTemplate;
+
 
 //    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/scores")
@@ -64,10 +69,8 @@ public class EventStreamController {
             ScoreByType scoreByType = new ScoreByType();
             scoreByType.setX(v.getLocal_date_time().getHour());
             scoreByType.setY(v.getScore());
-
             scoreByTypes.add(scoreByType);
         });
-
         return scoreByTypes;
     }
 

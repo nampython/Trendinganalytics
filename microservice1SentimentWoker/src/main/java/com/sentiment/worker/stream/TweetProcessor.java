@@ -24,7 +24,8 @@ import com.sentiment.worker.amazonService.AmazonDetecSentiment.*;
 
 @Slf4j
 @Component
-public class TweetProcessor {
+public class
+TweetProcessor {
 
     TweetStreams tweetStreams;
 

@@ -62,7 +62,6 @@ public class SentimentStreamProcessor {
                 .toStream()
                 .to(sendingAggregatedScore, Produced.with(Serdes.String(), Serdes.String()));
 
-
         return sentimentDataStream;
     }
 }

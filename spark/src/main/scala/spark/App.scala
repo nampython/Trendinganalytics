@@ -27,12 +27,15 @@ import scala.collection.JavaConversions._
  */
 object App {
 
+    val uri1 = "mongodb://127.0.0.1/test.myCollection"
+    val uri2 = "mongodb+srv://nam130599:nam130599@cluster0.ebeqc.mongodb.net/M001.test"
+
     val spark:SparkSession = SparkSession
         .builder()
         .master("local[1]")
         .appName("Twitter Processor")
-        .config("spark.mongodb.input.uri", "mongodb://127.0.0.1/test.myCollection")
-        .config("spark.mongodb.output.uri", "mongodb://127.0.0.1/test.myCollection")
+        .config("spark.mongodb.input.uri", uri2)
+        .config("spark.mongodb.output.uri", uri2)
         .getOrCreate()
     spark.conf.set("spark.executor.memory", "5g")
 
